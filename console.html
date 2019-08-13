@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>console</title>
+    <script type="text/javascript" src="/js/socket.io.js" ></script>
+</head>
+<body>
+<button onclick="send(1)">市</button>
+<button onclick="send(2)">黄浦</button>
+<button onclick="send(3)">文化馆</button>
+
+<button onclick="send(4)">活动1</button>
+<button onclick="send(5)">活动2</button>
+<script>
+    const socket = io('http://localhost:7771');
+    socket.on('connect', () => {
+        console.log(socket.connected); // true
+        socket.emit('console',{type:1})
+    });
+
+    function send(type) {
+        socket.emit('console',{type:type})
+    }
+    // socket.on('message', (msg) => {
+    //     console.log('msg',msg); // true
+    // });
+</script>
+</body>
+</html>

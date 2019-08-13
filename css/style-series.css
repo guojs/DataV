@@ -1,0 +1,669 @@
+/* 模板2 */
+.lccshare {width: 100%;position: absolute;left: 0;top: 0;z-index: 2;}
+.lccshare li {float: right;margin-right: 16px; width: 80px;height: 40px;line-height: 40px;font-size: 24px;color: #fff;text-align: center;background-color: rgba(0,0,0,0.5);}
+.lccshare li a {display: block;color: #fff;}
+
+.imgPreview {
+    z-index: 20;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.imgPreview>img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-height: 1200px;
+    max-width: 750px;
+}
+
+
+.template {
+    width: 750px;
+    margin: 0 auto;
+}
+
+.template .jz670 {
+    width: 670px;
+    margin: 0 auto;
+}
+
+.template .jz700 {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.template .teban {
+    width: 750px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+.template .teban .ban {
+    z-index: 1;
+}
+
+.template .teban .logo {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 2;
+}
+
+.template .tebchar {
+    width: 600px;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    margin-left: -300px;
+    border: 5px solid rgba(255, 255, 255, 0.25);
+    padding: 1px;
+    font-size: 27px;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+}
+
+.template .tebchar .nc {
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 20px 0;
+}
+
+.template .tebchar .w1 {
+    font-size: 41px;
+    margin-bottom: 10px;
+}
+
+.template .tetit_wc {
+    height: 80px;
+}
+
+.template .tetit {
+    width: 750px;
+    background-color: #fafafa;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 10;
+}
+
+.template .tetit li {
+    width: 33.3333%;
+    float: left;
+}
+
+.template .tetit li a {
+    display: block;
+    font-size: 26px;
+    color: #262626;
+    text-align: center;
+    height: 78px;
+    line-height: 78px;
+    border-bottom: 2px solid transparent;
+}
+
+.template .tetit li.current a {
+    border-color: #314e82;
+}
+
+.template .vote {
+    padding: 70px 0;
+    background-color: #fff;
+}
+
+.template .vote p {
+    font-size: 26px;
+    color: #262626;
+    line-height: 48px;
+}
+
+.template .vote .sanh {
+    border-top: 1px solid #262626;
+    border-bottom: 2px solid #262626;
+    height: 4px;
+    margin: 50px 0;
+}
+
+.template .voteList {}
+
+.template .voteList li {
+    width: 320px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.template .voteList li:nth-child(2n) {
+    margin-right: 0;
+}
+
+.template .voteList li .pic {
+    width: 318px;
+    height: 350px;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: hidden;
+}
+
+.template .voteList li .black {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.template .voteList li .black a {
+    display: block;
+    padding-left: 70px;
+    padding-right: 25px;
+    font-size: 26px;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.template .voteList li .ship, .template .voteList li .yinp {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -45px;
+    margin-top: -45px;
+}
+
+.template .voteList li .ship {
+    background: url(../image/vote/ship.png) no-repeat center;
+}
+
+.template .voteList li .yinp {
+    background: url(../image/vote/yinp.png) no-repeat center;
+}
+
+.template .voteList li .riqi {
+    width: 50px;
+    height: 52px;
+    line-height: 52px;
+    background: url(../image/vote/icon1.png) no-repeat;
+    position: absolute;
+    left: 8px;
+    top: -8px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+}
+
+.template .voteList li .toup {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+
+.template .voteList li .toup a {
+    display: block;
+    font-size: 24px;
+    color: #fff;
+    background: url(../image/vote/icon2.png) no-repeat 20px center;
+    padding-left: 60px;
+}
+
+.template .voteList li .toup.old a {
+    background-image: url(../image/vote/icon3.png);
+}
+
+.template .voteList li .char {
+    background-color: #f7f7f7;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.template .voteList li .char .nc {
+    width: 280px;
+    height: 60px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.template .voteList li .char .tx {
+    width: 60px;
+    height: 60px;
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.template .voteList li .char .xm {
+    width: 182px;
+    height: 60px;
+    float: left;
+    margin-left: 20px;
+    font-size: 26px;
+    line-height: 30px;
+    color: #262626;
+    display: table;
+}
+
+.template .voteList li .char .xm span {
+    display: table-cell;
+    vertical-align: middle;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.template .tecont .t {
+    font-size: 34px;
+    color: #262626;
+    text-align: center;
+    font-weight: bold;
+}
+
+.template .tecont .fut {
+    font-size: 24px;
+    color: #262626;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.template .tecont .xian {
+    height: 1px;
+    background-color: #262626;
+    margin: 50px 0;
+}
+
+.template .liuzy {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 60px 0;
+    display: none;
+}
+
+.template .liuzy .nc {
+    width: 640px;
+    margin: 0 auto;
+}
+
+.template .kuang {
+    width: 580px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 22px 0;
+    margin-top: 60px;
+    font-size: 30px;
+    color: #262626;
+}
+
+.template .kuang .lable {
+    width: 140px;
+    float: left;
+    font-size: 30px;
+    color: #262626;
+    text-align: center;
+}
+
+.template .kuang .lable span {
+    display: inline-block;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    border-right: 1px solid #000;
+}
+
+.template .kuang .txt {
+    display: block;
+    width: 380px;
+    float: left;
+    background: transparent;
+    height: 36px;
+    margin: 0 26px;
+    border: none;
+}
+
+.template .kuangsub {
+    display: block;
+    margin: 0 auto;
+    margin-top: 120px;
+    width: 580px;
+    height: 80px;
+    line-height: 80px;
+    background: #8ab0f6;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.template .photoxx {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 60px 0;
+}
+
+.template .photoxx .nc {
+    width: 560px;
+    margin: 0 auto;
+}
+
+.template .photoxx .tit {
+    font-size: 28px;
+    color: #262626;
+    line-height: 46px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.template .photoxx .pic {
+    width: 100%;
+    position: relative;
+}
+.template .photoxx .pic .mediaDiv {
+    display:block;
+    width:560px;
+    height:610px;
+    overflow:hidden;
+    position: relative;
+}
+
+.template .photoxx .pic .ship, .template .photoxx .pic .yinp {
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -55px;
+    margin-top: -55px;
+}
+
+.template .photoxx .pic .ship {
+    background: url(../image/vote/ship2.png) no-repeat center;
+}
+
+.template .photoxx .pic .yinp {
+    background: url(../image/vote/yinp2.png) no-repeat;
+    background-position: 0 0;
+}
+.template .photoxx .pic .yinp.zt {
+    background-position: -110px 0;
+}
+
+.template .photoxx .pic video {
+    width: 560px;
+    height: 610px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.template .photoxx .pic audio {
+    display: none;
+}
+
+.template .photoxx .pic .tuip {
+    width: 100%;
+    height: 610px;
+    overflow: hidden;
+}
+
+.template .photoxx .pic .riqi {
+    width: 71px;
+    height: 94px;
+    line-height: 94px;
+    background: url(../image/vote/icon8.png) no-repeat;
+    font-size: 34px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 20px;
+    top: -12px;
+}
+
+.template .photoxx .people {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-top-left-radius: 45px;
+    border-bottom-left-radius: 45px;
+}
+
+.template .photoxx .people .tx {
+    width: 70px;
+    height: 70px;
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+}
+
+.template .photoxx .people .xm {
+    width: 210px;
+    height: 70px;
+    overflow: hidden;
+    float: left;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.template .photoxx .people .xm div {
+    height: 70px;
+    display: table;
+}
+
+.template .photoxx .people .xm span {
+    font-size: 30px;
+    color: #262626;
+    line-height: 35px;
+    display: table-cell;
+    vertical-align: middle;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.template .photoxx .anniu {
+    margin-top: 30px;
+}
+
+.template .photoxx .anniu .btn {
+    display: block;
+    width: 270px;
+    height: 65px;
+    line-height: 65px;
+    float: left;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+}
+
+.template .photoxx .anniu .btn:first-child {
+    margin-left: 0;
+}
+
+.template .photoxx .anniu .btn.lan {
+    background-color: #8ab0f6;
+}
+
+.template .photoxx .anniu .btn.huang {
+    background-color: #ffb505;
+}
+
+.template .photoxx .anniu .btn span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.template .photoxx .anniu .btn .tp {
+    font-size: 22px;
+    line-height: 30px;
+    margin-right: 24px;
+}
+
+.template .photoxx .anniu .btn .tp em {
+    font-style: normal;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-top: -4px;
+    width: 32px;
+    height: 28px;
+    background: url(../image/vote/icon2.png) no-repeat;
+}
+
+.template .photoxx .anniu .btn.old .tp em {
+    background-image: url(../image/vote/icon3.png);
+}
+
+.template .rules {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 60px 0;
+    min-height: 800px;
+}
+
+.template .rules .nc {
+    width: 640px;
+    margin: 0 auto;
+}
+
+.template .rules p {
+    font-size: 26px;
+    color: #262626;
+    line-height: 60px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.template .ranking {
+    background-color: #fff;
+    margin: 20px auto;
+}
+
+.template .rankTab {
+    width: 650px;
+    margin-left: 50px;
+    border-collapse: collapse;
+    color: #262626;
+}
+
+.template .rankTab td {
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.template .rankTab .td1 {
+    width: 60px;
+}
+
+.template .rankTab .td2 {
+    width: 115px;
+}
+
+.template .rankTab .td3 {
+    width: 370px;
+}
+
+.template .rankTab .td4 {
+    width: 105px;
+}
+
+.template .rankTab .td1 span {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.template .rankTab tr:nth-child(1) .td1 span {
+    background: url(../image/vote/icon4.png) no-repeat center;
+    text-indent: -9999px;
+}
+
+.template .rankTab tr:nth-child(2) .td1 span {
+    background: url(../image/vote/icon5.png) no-repeat center;
+    text-indent: -9999px;
+}
+
+.template .rankTab tr:nth-child(3) .td1 span {
+    background: url(../image/vote/icon6.png) no-repeat center;
+    text-indent: -9999px;
+}
+
+.template .rankTab .td2 div {
+    width: 115px;
+    height: 126px;
+    overflow: hidden;
+    position: relative;
+}
+
+.template .rankTab .td3 div {
+    padding: 0 18px;
+    font-size: 34px;
+}
+
+.template .rankTab .td4 em {
+    display: block;
+    font-style: normal;
+    width: 32px;
+    height: 28px;
+    background: url(../image/vote/icon3.png);
+    margin: 0 auto;
+    margin-bottom: 14px;
+}
+
+.template .rankTab .td4 span {
+    display: block;
+    font-size: 28px;
+    text-align: center;
+}
+
+.template .ranking .chakqb {
+    font-size: 24px;
+    color: #999;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    border-top: 1px solid #eee;
+}
+
+.template .ranking .chakqb span {
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.template .ranking .chakqb.shou img {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

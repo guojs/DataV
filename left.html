@@ -1,0 +1,1631 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/bigData-sh.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/co-util.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+
+    <script src='js/jquery.slides.js'></script>
+
+    <title></title>
+    <style>
+        html, body {
+            background-color: #031c28;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="swiper-wrapper" id='swiper-wrapper'>
+
+
+
+         <!-- 第一屏开始 -->
+        <div class="swiper-slide"   >
+            <div class="block" style='width:620px;height:500px'>
+                <p class="ptitle"><span>●</span><span>交通云实时数据概况</span></p>
+                <div class="realTimeBox clearfix">
+                    <div class="item">
+                        <div class="circle">
+                            <div class="name">今日停车量</div>
+                            <div class="shuz" id="data1">279283</div>
+                        </div>
+                        <!--<div class="zuori">昨日：720,001</div>-->
+                    </div>
+                    <div class="item">
+                        <div class="circle">
+                            <div class="name">固定车数量</div>
+                            <div class="shuz" id="data2">281</div>
+                        </div>
+                        <!--<div class="zuori">昨日：720,001</div>-->
+                    </div>
+                    <div class="item">
+                        <div class="circle">
+                            <div class="name">临时车数量</div>
+                            <div class="shuz" id="data3">6051263</div>
+                        </div>
+                        <!--<div class="zuori">昨日：720,001</div>-->
+                    </div>
+                </div>
+                <div class="realTimeBox clearfix">
+                    <div class="item">
+                        <div class="circle">
+                            <div class="name">访客量</div>
+                            <div class="shuz" id="data4">6852</div>
+                        </div>
+                        <!--<div class="zuori">昨日：720,001</div>-->
+                    </div>
+                    <div class="item">
+                        <div class="circle">
+                            <div class="name">无牌车数量</div>
+                            <div class="shuz" id="data5">16016</div>
+                        </div>
+                        <!--<div class="zuori">昨日：720,001</div>-->
+                    </div>
+                    <div class="item">
+                        <div class="circle">
+                            <div class="name">异常抬杆次数</div>
+                            <div class="shuz" id="data6">5179</div>
+                        </div>
+                        <!--<div class="zuori">昨日：720,001</div>-->
+                    </div>
+                </div>
+
+                <div class="realTimeBox clearfix">
+                    <div class="item">
+                        <div class="circle">
+                            <div class="name">收入总额</div>
+                            <div class="shuz" id="data7">28015</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="circle">
+                            <div class="name">空余车位数</div>
+                            <div class="shuz" id="data8">11632</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="pad"></div>
+            <div class="block" style='width:620px;height:228px;'>
+                <p class="ptitle"><span>●</span><span>今日各区停车场收益排名</span></p>
+                <div id='cultureProduct' style="width:600px;height:200px;margin-top:-10px;"></div>
+            </div>
+            <div class="pad"></div>
+            <div class="block" style="width:620px;height:280px;">
+                <!-- 各区县活动供应量对比图 -->
+                <p class="ptitle"><span>●</span><span>各区停车位统计图</span></p>
+                <div id="actAmount" style="width: 600px;height: 245px"></div>
+            </div>
+           
+           
+
+        </div>
+        <!-- 第一屏结束 -->
+
+         <!-- 第二屏幕开始 -->
+ <div class="swiper-slide">
+        <div class="block" style='width:620px;height:420px;position: relative;background:url("../image/n-map.png") center;background-size:cover;'>
+            <p class="ptitle"><span>●</span><span>交通云实时订单跟踪</span></p>
+            
+            <div class="flashesDot">
+                <!-- 崇明-->
+                <div style="left: 350px; top: 155px; display: block;"></div>
+                <div style="left: 20px; top: 250px; display: block;"></div>
+                <!-- 青浦 -->
+                <div style="left: 200px; top: 150px; display: none;"></div>
+                
+                <div style="left: 219px; top:196px; display: none;"></div>
+                <div style="left: 67px; top: 270px; display: block;"></div>
+                <!-- 嘉定 -->
+                <div style="left: 100px; top: 220px; display: block;"></div>
+              
+                <!-- 市区 -->
+                <div style="left:380px; top: 250px; display: none;"></div>
+                <div style="left: 235px; top: 139px; display: none;"></div>
+                <div style="left: 180px; top: 265px; display: block; color:red"></div>
+                <div style="left: 320px; top: 226px; display: block;"></div>
+                <!-- 松江 -->
+                <div style="left: 260px; top: 208px; display: block;"></div>
+                <div style="left: 416px; top: 190px; display: none;"></div>
+                <div style="left: 509px; top: 163px; display: block;"></div>
+                <div style="left: 307px; top: 180px; display: none;"></div>
+                <!-- 闵行 -->
+                <div style="left: 299px; top: 257px; display: block;"></div>
+                <div style="left: 296px; top: 140px; display: block;"></div>
+                <div style="left: 464px; top: 244px; display: none;"></div>
+                <!-- 浦东 -->
+                <div style="left: 480px; top: 208px; display: none;"></div>
+                <div style="left: 215px; top: 270px; display: block;"></div>
+                <div style="left: 400px; top: 140px; display: none;"></div>
+                <div style="left: 264px; top: 256px; display: none;"></div>
+                <div style="left: 148px; top: 220px; display: block;"></div>
+                <div style="left: 230px; top: 230px; display: none;"></div>
+
+            </div>
+            <div class="distribution-map" id="map-bounce-data">
+
+            </div>
+        </div>
+        <div class="pad"></div>
+        <div class="block" style='width:620px;height:300px'>
+            <p class="ptitle"><span>●</span><span>一周内停车场使用率统计</span></p>
+            <div id="actWeek" style="width: 600px;height:260px"></div>
+        </div>
+        <div class="pad"></div>
+
+
+        <div class="block" style='width:620px;height:290px;display: flex;padding-left:0;padding-right:0'>
+            <div id="userAccess" style="width:620px;height:290px;"></div>
+            <!-- <div id="venueWeek" style="width: 340px;height:290px"></div> -->
+        </div>
+
+    </div> 
+ <!-- 第二屏幕结束 -->
+      
+    </div>
+
+
+    <!-- 区 弹层-->
+    <div class="popMask clearfix" data-value="2" style="display: none;">
+        <div class="popMain">
+            <div class="pWrap clearfix" style="width: 620px;">
+                <!-- 大数据 -->
+                <div class="pItem" style="width: 100%;height: 350px;">
+                    <div id="bigDataTitle" style="width: 100%;height: 97px;line-height: 97px; background:url(image/n-bg3.png) no-repeat center;font-size: 40px;color: #8eb2be;text-align: center;">
+                        黄浦大数据
+                    </div>
+                    <div class="dashuju">
+                        <p>累计活动发布量：<span>35291</span>场</p>
+                        <p>累计可预订活动发布量：<span>23901</span>次</p>
+                        <p>活&emsp;动&emsp;室：<span>140</span>个</p>
+                    </div>
+                </div>
+                <!-- 用户性别分布 -->
+                <div class="pItem" style="width: 100%;height: 230px;">
+                    <div class="xTitle" style="font-size: 20px; position: absolute;left: 0;top: 25px;width: 100%;text-align: center;">用户性别分布</div>
+                    <div class="xingbie">
+                        <div class="xb" style="color: #33A6D6;left: 72px">42</div>
+                        <div class="xb" style="color: #EBAA01;left: 320px">58</div>
+                    </div>
+                </div>
+                <!-- 用户行为分析 -->
+                <div class="pItem" style="width: 100%;height: 460px;">
+                    <div class="xTitle" style="font-size: 20px; position: absolute;left: 0;top: 25px;width: 100%;text-align: center;">用户行为分析（一周下单量分析）</div>
+                    <div id="areaUserAction" style="width: 620px;height: 460px;position: absolute;left: 0;top: 0;"></div>
+                </div>
+            </div>
+            <div class="pWrap clearfix" style="width: 640px;">
+                <!-- 用户兴趣标签分布图 -->
+                <div class="pItem" style="width: 100%;height: 350px;">
+                    <div class="xTitle" style="font-size: 32px; position: absolute;left: 0;top: 25px;width: 100%;text-align: center;">用户兴趣标签分布图</div>
+                    <div class="yonghuxingqu yonghuxingqu-2">
+                        <div class="xqDiv" style="left: 20px"><span class="sz">12</span><span class="mz">电影</span></div>
+                        <div class="xqDiv" style="left: 178px"><span class="sz">31</span><span class="mz">演出</span></div>
+                        <div class="xqDiv" style="left: 335px"><span class="sz">16</span><span class="mz">讲座</span></div>
+                        <div class="xqDiv" style="left: 478px"><span class="sz">41</span><span class="mz">展览</span></div>
+                    </div>
+                </div>
+                <!-- 用户单次订票票数对比图 -->
+                <div class="pItem" style="width: 100%;height: 700px;">
+                    <div class="xTitle" style="font-size: 32px; position: absolute;left: 0;top: 40px;width: 100%;text-align: center;">用户单次订票票数对比图</div>
+                    <div class="jiaddc">
+                        <div class="shu clearfix" style="width: 310px;bottom: 375px;">
+                            <span style="font-size: 50px;color: #ebaa01;" class="firstVote">1<em style="font-size: 30px;">
+                                    张</em></span>
+                            <span style="font-size: 48px;color: #fff;" class="firstVoteRate">77<em style="font-size: 28px;">
+                                    %</em></span>
+                        </div>
+                        <div class="shu clearfix" style="width: 310px;bottom: 225px;">
+                            <span style="font-size: 50px;color: #ebaa01;" class="secondVote">5<em style="font-size: 30px;">
+                                    张</em></span>
+                            <span style="font-size: 41px;color: #fff;" class="secondVoteRate">14<em style="font-size: 28px;">
+                                    %</em></span>
+                        </div>
+                        <div class="shu clearfix" style="width: 310px;bottom: 121px;">
+                            <span style="font-size: 48px;color: #ebaa01;" class="thirdVote">2<em style="font-size: 30px;">
+                                    张</em></span>
+                            <span style="font-size: 35px;color: #fff;margin-top:13px;" class="thirdVoteRate">6<em style="font-size: 28px;">
+                                    %</em></span>
+                        </div>
+                        <div class="shu clearfix" style="width: 310px;bottom: 53px;">
+                            <span style="font-size: 36px;color: #ebaa01;" class="fourthVote">3<em style="font-size: 30px;">
+                                    张</em></span>
+                            <span style="font-size: 34px;color: #fff;" class="fourthVoteRate">3<em style="font-size: 28px;">
+                                    %</em></span>
+                        </div>
+                        <div class="shu clearfix" style="width: 310px;bottom: 0px;">
+                            <span style="font-size: 31px;color: #ebaa01;" class="fifthVote">4<em style="font-size: 30px;">
+                                    张</em></span>
+                            <span style="font-size: 24px;color: #33a6d6;" class="fifthVoteRate">0<em style="font-size: 28px;">
+                                    %</em></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pWrap clearfix" style="width: 620px;">
+                <!-- 各场馆活动预订量占比图 -->
+                <div class="pItem" style="width: 100%;height: 350px;">
+                    <div class="xTitle" style="font-size: 32px; position: absolute;left: 0;top: 25px;width: 100%;text-align: center;">各场馆活动预订量占比图</div>
+                    <div id="areaVenActYd" style="width: 620px;height: 350px;position: absolute;left: 0;top: 0;"></div>
+                </div>
+                <!-- 各场馆活动发布量占比图 -->
+                <div class="pItem" style="width: 100%;height: 700px;">
+                    <div class="xTitle" style="font-size: 32px; position: absolute;left: 0;top: 40px;width: 100%;text-align: center;">各场馆活动发布量占比图</div>
+                    <div id="areaVenActFb" style="width: 620px;height: 700px;position: absolute;left: 0;top: 0;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 馆 弹层 -->
+    <div class="popMask clearfix" data-value="3" style="display: none;">
+        <div class="popMain">
+            <div class="pWrap clearfix" style="width: 100%;margin-right: 0;">
+                <!-- 大数据 -->
+                <div class="pItem" style="float: left;margin-right: 10px; width: 620px;height: 350px;">
+                    <div style="width: 100%;height: 97px;line-height: 97px; background:url(image/n-bg3.png) no-repeat center;font-size: 40px;color: #8eb2be;text-align: center;">黄浦区文化馆</div>
+                    <div class="dashuju" style="top: 125px;">
+                        <p style="margin-bottom: 10px;">累计活动发布量：<span>522</span>场</p>
+                        <p style="margin-bottom: 10px;">累计浏览量：<span>359352</span>次</p>
+                        <p style="margin-bottom: 10px;">服务人次：<span>6450</span>次</p>
+                        <p style="margin-bottom: 10px;">服务人数：<span>3529</span>次</p>
+                    </div>
+                </div>
+                <!-- 用户兴趣标签分布图 -->
+                <div class="pItem" style="float: left;margin-right: 10px; width: 640px;height: 350px;">
+                    <div class="xTitle" style="font-size: 32px; position: absolute;left: 0;top: 25px;width: 100%;text-align: center;">用户兴趣标签分布图</div>
+                    <div class="yonghuxingqu yonghuxingqu-2">
+                        <div class="xqDiv" style="left: 20px"><span class="sz">12</span><span class="mz">展览</span></div>
+                        <div class="xqDiv" style="left: 178px"><span class="sz">31</span><span class="mz">亲子</span></div>
+                        <div class="xqDiv" style="left: 328px"><span class="sz">16</span><span class="mz">秒杀</span></div>
+                        <div class="xqDiv" style="left: 478px"><span class="sz">41</span><span class="mz">培训</span></div>
+                    </div>
+                </div>
+                <!-- 用户特征：男女比例近6:4 -->
+                <div class="pItem" style="float: left;margin-right: 10px; width: 620px;height: 350px;">
+                    <div class="xTitle" style="font-size: 32px; position: absolute;left: 0;top: 25px;width: 100%;text-align: center;">用户特征：男女比例近4:6</div>
+                    <div class="xingbie" style="top: 135px;">
+                        <div class="xb" style="color: #33A6D6;left: 72px">43</div>
+                        <div class="xb" style="color: #EBAA01;left: 320px">57</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pWrap clearfix" style="width: 100%;margin-right: 0;">
+                <div class="pItem" style="float: left;margin-right: 10px; width: 945px;height: 700px;">
+                    <!-- 活动举办趋势图 -->
+                    <div class="xTitle" style="font-size: 32px; position: absolute;left: 0;top: 25px;width: 100%;text-align: center;">活动举办趋势图</div>
+                    <div id="venActTrend" style="width: 945px;height: 700px;position: absolute;left: 0;top: 0;"></div>
+                </div>
+                <div class="pItem" style="float: left;margin-right: 10px; width: 945px;height: 700px;">
+                    <!-- 用户订单趋势 -->
+                    <div class="xTitle" style="font-size: 32px; position: absolute;left: 0;top: 25px;width: 100%;text-align: center;">用户订单趋势</div>
+                    <div id="venOrderTrend" style="width: 945px;height: 700px;position: absolute;left: 0;top: 0;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 品牌（上海国际艺术节艺术天空） 弹层 -->
+    <div class="popMask clearfix" data-value="4" style="display: none;">
+        <div class="popMain">
+            <div class="pWrap clearfix" style="width: 100%;margin-right: 0;">
+                <div class="pItem" style="float: left;margin-right: 10px; width: 900px;height: 1060px;">
+                    <div style="width: 100%;height: 97px;line-height: 97px; background:url(image/n-bg1.png) no-repeat center;font-size: 36px;color: #8eb2be;text-align: center;">
+                        上海国际艺术节艺术天空大数据
+                    </div>
+                    <ul class="festival clearfix">
+                        <li>
+                            <div class="fTit">交通云浏览数</div>
+                            <div class="wenz"><span>9343127</span>人</div>
+                        </li>
+                        <li>
+                            <div class="fTit">交通云独立访问用户</div>
+                            <div class="wenz"><span>8363153</span>人</div>
+                        </li>
+                        <li>
+                            <div class="fTit">活动总数</div>
+                            <div class="wenz"><span>72</span>场次</div>
+                        </li>
+                        <li>
+                            <div class="fTit">活动总票量</div>
+                            <div class="wenz"><span>65311</span>张</div>
+                        </li>
+                        <li>
+                            <div class="fTit">订票人数</div>
+                            <div class="wenz"><span>46312</span>人</div>
+                        </li>
+                        <li>
+                            <div class="fTit">现场验票量</div>
+                            <div class="wenz"><span>53204</span>张</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pItem" style="float: left;margin-right: 10px; width: 990px;height: 1060px;">
+                    <video class="brandVideo" loop="loop" src="http://culturecloud.img-cn-hangzhou.aliyuncs.com/H5/2018191453522ctV7mb9Oq116m6l4Ynb2wsnHRc7tK.mp4"
+                        style="width:900px;height:750px;position:absolute;top: 0;right: 0;bottom: 0;left: 0;margin: auto"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 品牌（上海城市草坪音乐会） 弹层 -->
+    <div class="popMask clearfix" data-value="5" style="display: none;">
+        <div class="popMain">
+            <div class="pWrap clearfix" style="width: 100%;margin-right: 0;">
+                <div class="pItem" style="float: left;margin-right: 10px; width: 900px;height: 1060px;">
+                    <div style="width: 100%;height: 97px;line-height: 97px; background:url(image/n-bg1.png) no-repeat center;font-size: 36px;color: #8eb2be;text-align: center;">
+                        2017上海城市草坪音乐会
+                    </div>
+                    <ul class="festival clearfix">
+                        <li>
+                            <div class="fTit">交通云浏览数</div>
+                            <div class="wenz"><span>593453</span>人</div>
+                        </li>
+                        <li>
+                            <div class="fTit">交通云独立访问用户</div>
+                            <div class="wenz"><span>264340</span>人</div>
+                        </li>
+                        <li>
+                            <div class="fTit">活动总数</div>
+                            <div class="wenz"><span>14</span>场次</div>
+                        </li>
+                        <li>
+                            <div class="fTit">活动总票量</div>
+                            <div class="wenz"><span>6302</span>张</div>
+                        </li>
+                        <li>
+                            <div class="fTit">订票人数</div>
+                            <div class="wenz"><span>4383</span>人</div>
+                        </li>
+                        <li>
+                            <div class="fTit">现场验票量</div>
+                            <div class="wenz"><span>5391</span>张</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pItem" style="float: left;margin-right: 10px; width: 990px;height: 1060px;">
+                    <video class="brandVideo" loop="loop" src="http://culturecloud.img-cn-hangzhou.aliyuncs.com/H5/201819145127VShO376FyLR02LeFZN4INS4Ju7wAAD.mp4"
+                        style="width:900px;height:750px;position:absolute;top: 0;right: 0;bottom: 0;left: 0;margin: auto"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        $("#swiper-wrapper").slidesjs({
+            width: 620,
+            height: 1030,
+            play: {
+                active: true,
+                // [boolean] 生成的播放和停止按钮.
+                //不能使用自己的按键。
+                effect: "slide",
+                // [string] 可以是 "slide" 或者 "fade".
+                interval: 15000,
+                // [number] 每张幻灯片上花费的时间以毫秒为单位。
+                auto: true,
+                // [boolean] 加载开始播放幻灯片。
+                swap: false,
+                // [boolean] 显示/隐藏停止和播放按钮
+                pauseOnHover: true,
+                // [boolean] 鼠标经过暂停正在播放的幻灯片。
+                restartDelay: 2500
+                // [number] 重新启动延迟无效幻灯片。
+            },
+            effect: {
+                slide: {
+                    speed: 1500
+                }
+
+            },
+        });
+
+        function randomNum(start, end) {
+            let total = end - start + 1;
+            return Math.floor(Math.random() * total + start);
+        }
+
+        function randomAmount(size, start, end) {
+            var arr = [];
+            for (var i = 0; i < size; i++) {
+                arr.push(randomNum(start, end))
+            }
+            return arr;
+        }
+    </script>
+    <script type="text/javascript">
+        // 一周内活动票务及预订情况
+        var actWeekOpt = {
+            // 全局调色盘颜色列表
+            color: ['#cfa21c', '#1e7ca4', '#28d5e0'],
+            // 全局的字体样式。
+            textStyle: {
+                fontSize: 12,
+                color: '#666',
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+
+            legend: {
+                top: 2,
+                right: 50,
+                orient: 'horizontal',
+                textStyle: {
+                    fontSize: 12,
+                    color: ['#cfa21c', '#1e7ca4', '#28d5e0'],
+                },
+
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                // 坐标轴的那根线
+                axisLine: {
+                    lineStyle: {
+                        color: '#0a9dc2'
+                    }
+                },
+                // 刻度线
+                axisTick: {
+                    show: false
+                },
+                // 刻度标签
+                axisLabel: {
+                    fontSize: 12,
+                    color: '#8eb2be'
+                }
+            }],
+            yAxis: [{
+                    type: 'value',
+                    // y轴分割线
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            opacity: 0.2
+                        }
+                    },
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            type: 'dashed',
+                            opacity: 0.5
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                        }
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 12,
+                        color: '#1a89ad'
+                    }
+                },
+                {
+                    show: false,
+                    type: 'value',
+                    min: 0,
+                    max: 100,
+                }
+            ],
+            series: [{
+                    name: '车位总数',
+                    type: 'bar',
+                    barWidth: 5,
+                    barGap: 0,
+                    data: [10, 52, 200, 334, 390, 330, 220]
+                },
+                {
+                    name: '使用次数',
+                    type: 'bar',
+                    barWidth: 5,
+                    barGap: 0,
+                    data: [10, 52, 200, 334, 390, 330, 220]
+                },
+                {
+                    name: '使用率',
+                    type: 'line',
+                    data: [56, 42, 72, 78, 87, 97, 93],
+                    yAxisIndex: 1,
+                    // 标记
+                    symbol: 'circle',
+                    symbolSize: 8,
+                    // 图形上的文本标签
+                    label: {
+                        show: true,
+                        position: 'top',
+                        fontSize: 12,
+                        color: '#28d5e0',
+                        formatter: '{c}%'
+                    },
+                }
+            ]
+        };
+        echarts.init(document.getElementById('actWeek')).setOption(actWeekOpt);
+
+        // 一周内场馆开放及使用情况
+        var venueWeekOpt = {
+            // 全局调色盘颜色列表
+            color: ['#1e7ca4', '#cfa21c'],
+            // 全局的字体样式。
+            textStyle: {
+                fontSize: 12,
+                color: '#666',
+            },
+            title: {
+                text: '● 一周内场馆开放及使用情况',
+                textStyle: {
+                    fontSize: 14,
+                    color: '#90b3be'
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                left: 20,
+                containLabel: true
+            },
+            // 图例
+            legend: {
+                bottom: 25,
+                orient: 'horizontal',
+                textStyle: {
+                    fontSize: 12,
+                    color: '#1e7ca4',
+                }
+
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                // 坐标轴的那根线
+                axisLine: {
+
+                    lineStyle: {
+                        color: '#0a9dc2'
+                    }
+                },
+                // 刻度线
+                axisTick: {
+                    show: false
+                },
+                // 刻度标签
+                axisLabel: {
+                    rotate: '80',
+                    fontSize: 12,
+                    color: '#8eb2be'
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+
+
+                // y轴分割线
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#0a9dc2',
+                        opacity: 0.2
+                    }
+                },
+                // 坐标轴的那根线
+                axisLine: {
+                    lineStyle: {
+                        color: '#0a9dc2',
+                        type: 'dashed',
+                        opacity: 0.5
+                    }
+                },
+                // 刻度线
+                axisTick: {
+                    lineStyle: {
+                        color: '#0a9dc2',
+                    }
+                },
+                // 刻度标签
+                axisLabel: {
+                    fontSize: 12,
+                    color: '#1a89ad'
+                }
+            }],
+            series: [{
+                name: '场馆开放量',
+                type: 'line',
+                barWidth: 5,
+                data: [440, 390, 480, 500, 545, 460, 535],
+                symbolSize: 0,
+                areaStyle: {
+                    color: '#1e7ca4',
+                    opacity: 1
+                }
+            }]
+        };
+        echarts.init(document.getElementById('venueWeek')).setOption(venueWeekOpt);
+    </script>
+    <script type="text/javascript">
+        Date.prototype.Format = function(fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": Math.floor(this.getMinutes() / 10) * 10, //分-取整
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[
+                    k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+
+        Date.prototype.Format2 = function(fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[
+                    k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+    </script>
+    <script type="text/javascript">
+        var areaName = '黄浦';
+        var venueName = '黄浦区文化馆';
+
+        var max_pnmu = 3;
+        var TIME_SPAN_SECOND = 3000;
+        var TIME_SPAN_MINUTES = 1000 * 60;
+        var timerlist = [];
+
+        var areaFlag = false,
+            venueFlag = false;
+
+        cityFun();
+
+        function cityFun() {
+            //市
+            console.log('lllll')
+            page1data();
+            area10();
+            areaProduct();
+            area11();
+            
+        }
+
+        function areaFun() {
+            //区
+            // area15();
+            // area16();
+            area18();
+            area17();
+            area21();
+            area20();
+        }
+
+        function venueFun() {
+            //馆
+            area22();
+        }
+
+        // var socket = io('http://localhost:7771');
+        // socket.on('connect', () => {
+        //     //console.log(socket.connected); // true
+        //     socket.emit('join', {
+        //         name: 'page',
+        //         time: new Date().toString()
+        //     })
+
+        // });
+
+        // socket.on('page', (res) => {
+        //     if (!res) return;
+        //     if (res.t == 'join') {
+        //         if (res.status == 'success') console.log('加入成功')
+
+        //     } else if (res.t == 'data') {
+        //         console.log(res.value)
+        //         $('.brandVideo').each(function() {
+        //             this.pause();
+        //         });
+        //         switch (res.value) {
+        //             case 1:
+        //                 $('.popMask').hide();
+        //                 break;
+        //             case 2:
+        //                 $('.popMask').hide();
+        //                 $('.popMask[data-value = ' + res.value + ']').show();
+        //                 if (!areaFlag) {
+        //                     areaFun();
+        //                     areaFlag = true;
+        //                 }
+        //                 break;
+        //             case 3:
+        //                 $('.popMask').hide();
+        //                 $('.popMask[data-value = ' + res.value + ']').show();
+        //                 if (!venueFlag) {
+        //                     venueFun();
+        //                     venueFlag = true;
+        //                 }
+        //                 break;
+        //             case 4:
+        //                 $('.popMask').hide();
+        //                 $('.popMask[data-value = ' + res.value + ']').show();
+
+        //                 var videoEle = $('.popMask[data-value = ' + res.value + '] .brandVideo');
+        //                 videoEle[0].play();
+        //                 break;
+        //             case 5:
+        //                 $('.popMask').hide();
+        //                 $('.popMask[data-value = ' + res.value + ']').show();
+
+        //                 var videoEle = $('.popMask[data-value = ' + res.value + '] .brandVideo');
+        //                 videoEle[0].play();
+        //                 break;
+        //         }
+        //     }
+        // });
+
+
+        // 省 - 第一页数据
+        function page1data() {
+
+
+        }
+
+
+        function flashFun() { 
+            var flashDot = $('.flashesDot div');
+            var flashNum = flashDot.length;
+            var flashRandom = [];
+            for (var i = 0; i < flashNum; i++) {
+                flashRandom.push(Math.round(Math.random()));
+            }
+            flashDot.each(function(index) {
+                if (flashRandom[index] == 0) {
+                    $(this).fadeOut(600);
+                } else {
+                    $(this).fadeIn(600);
+                }
+            });
+        }
+        flashFun();
+        setInterval(function() {
+            flashFun();
+        }, 4000);
+
+        //第二页数据
+        function page2data() {
+            var areajson = [{
+                    "area": "嘉定",
+                    "pos": "top:-90px;left:65px"
+                },
+                {
+                    "area": "宝山",
+                    "pos": "top:-22px;left:165px"
+                },
+                {
+                    "area": "青浦",
+                    "pos": "top:130px;left:-70px"
+                },
+                {
+                    "area": "松江",
+                    "pos": "top:200px;left:-10px"
+                },
+                {
+                    "area": "闵行",
+                    "pos": "top:180px;left:180px"
+                },
+                {
+                    "area": "浦东",
+                    "pos": "top:180px;left:390px"
+                },
+                {
+                    "area": "奉贤",
+                    "pos": "top:315px;left:410px"
+                },
+                {
+                    "area": "金山",
+                    "pos": "top:445px;left:95px"
+                },
+                {
+                    "area": "崇明",
+                    "pos": "top:-220px;left:260px"
+                }
+            ];
+
+            function displayOnMap(region,p,tick) {
+                
+                // $("#map-bounce-data").empty();
+
+                $("#map-bounce-data").append(
+                    "<button class=\"map-point\" style='top:30px;left:50px;position:relative'><div class=\"content\"><div class=\"centered-y\"><h2 style=\"color: #24a6cb;font-size: 30px;\">"+region+"</h2><p style=\"color: #c29f4a;line-height: 45px;font-size: 30px;\">"+p+"<br /><span style=\"color: #bedae3;\">进入了</span><span style=\"color: #fcd256;\">"+tick+"</span><span style=\"color: #bedae3;\">辆车</span></p></div></div></button>"
+                );
+            };
+            // displayOnMap();
+            // var timer = setInterval(function() {
+            //     var t=new Date().getTime();
+                
+            //     var stage=['梅溪湖大剧院','湖南音乐厅','湖南大剧院','田汉大剧院'];
+            //     var p=stage[t%4];
+              
+            // }, TIME_SPAN_SECOND);
+
+         displayOnMap('景山街道','中海紫御公馆东区停车场',1);
+         displayOnMap('前门街道',' 金鱼池中街2号院停车场 ',2);
+         displayOnMap('体育馆路街道',' 鼎盛园商务楼停车场 ',5);
+         displayOnMap('东直门街道',' 同仁医院东区停车场 ',3);
+     
+
+            // timerlist[timerlist.length] = timer;
+        }
+        page2data();
+
+        $(function() {
+
+            var p_num = 0;
+
+            setInterval(function() {
+                $(".map-point").eq(p_num).css({
+                    "top": "200px",
+                    "left": "280px",
+                    'width': '300px',
+                    'height': '250px',
+                    'z-index': '10',
+                    'border': '3px solid #7fcff7'
+                });
+                setTimeout(function() {
+                    $(".map-point").eq(p_num).find(".content").css({
+                        'filter': ' progid: DXImageTransform.Microsoft.Alpha(Opacity=80)',
+                        'opacity': ' 0.8'
+                    });
+                }, 1000)
+                setTimeout(function() {
+                    $(".map-point").eq(p_num).css({
+                        'width': '0px',
+                        'height': '0px',
+                        'z-index': '1',
+                        'border': '0px solid #7fcff7'
+                    });
+                    $(".map-point").eq(p_num).find(".content").css({
+                        'filter': ' progid: DXImageTransform.Microsoft.Alpha(Opacity=0)',
+                        'opacity': ' 0'
+                    });
+                    if (p_num >= max_pnmu) {
+                        p_num = 0
+                    } else {
+                        p_num++
+                    }
+                }, 5000)
+            }, 7000);
+
+        });
+
+
+
+        // 省 - 各区县活动供应量对比图
+        function area10() {
+            var actAmountOpt = {
+                // 全局调色盘颜色列表
+                color: ['#cfa21c', '#1e7ca4'],
+                // 全局的字体样式。
+                textStyle: {
+                    fontSize: 12,
+                    color: '#666',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    top: 30
+                },
+                // 图例
+                legend: {
+                    top: 0,
+                    right: 50,
+                    orient: 'horizontal',
+                    textStyle: {
+                        fontSize: 12,
+                        color: ['#cfa21c', '#1e7ca4', '#28d5e0'],
+                    },
+                    itemWidth: 20,
+                    itemHeight: 4,
+                    itemGap: 20
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: ['东四','故宫','东单','金宝街','雍和宫','王府井','建国门','台基厂'],
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2'
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        show: false
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        // rotate: "45",
+                        fontSize: 12,
+                        color: '#8eb2be'
+                    }
+                }],
+                yAxis: [{
+                    type: 'value',
+                    // y轴分割线
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            opacity: 0.2
+                        }
+                    },
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            type: 'dashed',
+                            opacity: 0.5
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                        }
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 14,
+                        color: '#1a89ad'
+                    }
+                }],
+                series: [{
+                        name: '免费停车位数量',
+                        type: 'bar',
+                        barWidth: 10,
+                        barGap: 0,
+                        // data: [840, 380, 805, 120, 203, 211, 402, 699, 268]
+                        data: [840, 203,211,805, 699,120,380, 402]
+                    },
+                    {
+                        name: '付费停车位数量',
+                        type: 'bar',
+                        barWidth: 10,
+                        barGap: 0,
+                        // data: [1112, 622, 1065, 378, 300, 312, 610, 1156, 398]
+                        data: [1112,300, 312, 1065,1156, 378,622, 610 ]
+                    }
+                ]
+            };
+
+            var chartVisitorIn = echarts.init(document.getElementById('actAmount'));
+            chartVisitorIn.setOption(actAmountOpt);
+
+        }
+   
+        function areaProduct() {
+            
+            var actAmountOpt = {
+                // 全局调色盘颜色列表
+                color: ['#cfa21c', '#1e7ca4'],
+                // 全局的字体样式。
+                textStyle: {
+                    fontSize: 12,
+                    color: '#666',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    top: 30
+                },
+                // 图例
+                legend: {
+                    top: 0,
+                    right: 50,
+                    orient: 'horizontal',
+                    textStyle: {
+                        fontSize: 12,
+                        color: ['#cfa21c', '#1e7ca4', '#28d5e0'],
+                    },
+                    itemWidth: 20,
+                    itemHeight: 4,
+                    itemGap: 20
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: ['东四','故宫','东单','金宝街','雍和宫','王府井','建国门','台基厂'],
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2'
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        show: false
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        // rotate: "45",
+                        fontSize: 12,
+                        color: '#8eb2be'
+                    }
+                }],
+                yAxis: [{
+                    type: 'value',
+                    // y轴分割线
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            opacity: 0.2
+                        }
+                    },
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            type: 'dashed',
+                            opacity: 0.5
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                        }
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 14,
+                        color: '#1a89ad'
+                    }
+                }],
+                series: [{
+                        name: '停车场收益(元)',
+                        type: 'bar',
+                        barWidth: 15,
+                        barGap: 0,
+                        data: [3908.8, 3718,3041,2243.95,1161, 902.58,750,703.1]
+                    }
+                    
+                ]
+            };
+
+            var chartVisitorIn = echarts.init(document.getElementById('cultureProduct'));
+            chartVisitorIn.setOption(actAmountOpt);
+
+        }
+
+        
+      
+        
+        // 省 - 用户访问渠道占比
+        function area11() {
+            var userAccessOpt = {
+                // 全局调色盘颜色列表
+                color: ['#eae681', '#e3b62e', '#69f3ff', '#46c1ff'],
+                // 全局的字体样式。
+                textStyle: {
+                    fontSize: 12,
+                    color: '#fff',
+                },
+                title: {
+                    text: '● 用户访问渠道占比',
+                    textStyle: {
+                        fontSize: 14,
+                        color: '#90b3be'
+                    }
+                },
+                // tooltip: {
+                //     trigger: 'item',
+                //     formatter: "{a} <br/>{b}: {c} ({d}%)"
+                // },
+
+
+                // 图例
+                legend: {
+                    bottom: 10,
+                    orient: 'horizontal',
+                    textStyle: {
+                        fontSize: 12,
+                        color: ['#eae681', '#e3b62e', '#69f3ff', '#46c1ff'],
+                    }
+
+                },
+
+                series: [{
+                    name: '车主付费渠道占比',
+                    type: 'pie',
+                    // center: ['50%', '55%'],
+                    radius: ['38%', '58%'],
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            show: true,
+                            textStyle: {
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    data: [{
+                            value: 41,
+                            name: '现金'
+                        },
+                        {
+                            value: 876,
+                            name: 'ETC'
+                        },
+                        {
+                            value: 25,
+                            name: '微信'
+                        },
+                        {
+                            value: 58,
+                            name: '支付宝'
+                        }
+                    ]
+                }]
+            };
+            echarts.init(document.getElementById('userAccess')).setOption(userAccessOpt);
+        }
+
+
+        // 区 - 用户兴趣标签分布图
+        function area18() {
+            $('#areaMovieTag').html(7);
+            $('#areaPlayTag').html(68);
+            $('#areaSpeechTag').html(14);
+            $('#areaExhibtionTag').html(11);
+        }
+
+        // 区 - 用户行为分析（一周下单量分析）
+        function area17() {
+            var data = [10206, 9840, 13671, 19607, 21621, 18125, 9744];
+            var areaUserActionOpt = {
+                // 全局调色盘颜色列表
+                color: ['#ebaa01'],
+                // 全局的字体样式。
+                textStyle: {
+                    fontSize: 12,
+                    color: '#666',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    top: 100
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2'
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        show: false
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 19,
+                        color: '#8eb2be'
+                    }
+                }],
+                yAxis: [{
+                    type: 'value',
+                    // y轴分割线
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            opacity: 0.2
+                        }
+                    },
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            type: 'dashed',
+                            opacity: 0.5
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                        }
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 14,
+                        color: '#1a89ad'
+                    }
+                }],
+                series: [{
+                    name: '用户行为分析',
+                    type: 'line',
+                    data: data,
+                }]
+            };
+            echarts.init(document.getElementById('areaUserAction')).setOption(areaUserActionOpt);
+        }
+
+        // 区 - 各场馆活动预订量占比图
+        function area21() {
+            var data = [{
+                    value: 632,
+                    name: "上海城市草坪音乐广场"
+                },
+                {
+                    value: 431,
+                    name: "兰心大戏院"
+                },
+                {
+                    value: 292,
+                    name: "上海当代艺术博物馆"
+                },
+                {
+                    value: 105,
+                    name: "上海新视艺正和（chi K11)美术馆"
+                },
+                {
+                    value: 163,
+                    name: "五里桥社区文化活动中心"
+                }
+            ];
+            var areaVenActYdOpt = {
+                // 全局调色盘颜色列表
+                color: ['#E3B62E', '#EAE680', '#81F8FF', '#11F8FF', '#A7BEFE'],
+                // 全局的字体样式。
+                textStyle: {
+                    fontSize: 12,
+                    color: '#666',
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                // 图例
+                legend: {
+                    width: 300,
+                    right: 30,
+                    top: 80,
+                    orient: 'vertical',
+                    textStyle: {
+                        fontSize: 14,
+                        color: '#ccc',
+                    },
+                    itemWidth: 22,
+                    itemHeight: 22,
+                    itemGap: 30
+                },
+                series: [{
+                    name: '团队用户兴趣标签',
+                    type: 'pie',
+                    center: ['30%', '58%'],
+                    radius: ['50%', '70%'],
+                    clockwise: true,
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        formatter: '{c}',
+                        fontSize: 20,
+                        color: '#fff'
+                    },
+                    data: data
+                }]
+            };
+            echarts.init(document.getElementById('areaVenActYd')).setOption(areaVenActYdOpt);
+        }
+
+        // 区 - 各场馆活动发布量占比图
+        function area20() {
+            var dataName = ["仙乐斯演艺厅", "共舞台ET聚场", "上海博物馆", "上海城市草坪音乐广场", "黄浦区文化馆", "黄浦区图书馆", "小东门街道社区文化活动中心",
+                "淮海街道社区文化活动中心", "南京东路街道社区文化活动中心", "瑞金二路街道社区文化活动中心", "外滩社区文化活动中心", "五里桥社区文化活动中心", "打浦桥社区文化活动中心"
+            ];
+            var data = [0.53, 0.53, 0.53, 0.92, 0.92, 4.69, 5.32, 6.77, 11.18, 11.18, 13.66, 16.95, 26.82];
+
+            var areaVenActFbOpt = {
+                // 全局调色盘颜色列表
+                color: ['#1e7ca4'],
+                // 全局的字体样式。
+                textStyle: {
+                    fontSize: 12,
+                    color: '#666',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    top: 140,
+                    left: 190
+                },
+                xAxis: [{
+                    type: 'value',
+                    // y轴分割线
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            opacity: 0.2
+                        }
+                    },
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            type: 'dashed',
+                            opacity: 0.5
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                        }
+                    },
+                    axisLabel: {
+                        fontSize: 19,
+                        color: '#8eb2be',
+                        formatter: '{value} %'
+                    }
+                }],
+                yAxis: [{
+                    type: 'category',
+                    data: dataName,
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2'
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        fontSize: 14,
+                        color: '#1a89ad',
+                        rotate: 30,
+                    }
+                }],
+                series: [{
+                    name: '各子单位活动室预订率',
+                    type: 'bar',
+                    barWidth: 20,
+                    barGap: 0,
+                    data: data,
+                    label: {
+                        show: true,
+                        position: 'right',
+                        formatter: '{c}%',
+                        fontSize: 20,
+                        color: '#8eb2be'
+                    }
+                }]
+            };
+            echarts.init(document.getElementById('areaVenActFb')).setOption(areaVenActFbOpt);
+        }
+
+        function area22() {
+            var venActNumArr = [];
+
+
+            // 区 - 活动举办趋势图
+            var venActTrendOpt = {
+                // 全局调色盘颜色列表
+                color: ['#ebaa01'],
+                // 全局的字体样式。
+                textStyle: {
+                    fontSize: 12,
+                    color: '#666',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    top: 150
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', ],
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2'
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        show: false
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 19,
+                        color: '#8eb2be'
+                    }
+                }],
+                yAxis: [{
+                    type: 'value',
+                    // y轴分割线
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            opacity: 0.2
+                        }
+                    },
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            type: 'dashed',
+                            opacity: 0.5
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                        }
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 14,
+                        color: '#1a89ad'
+                    }
+                }],
+                series: [{
+                    name: '活动举办趋势',
+                    type: 'line',
+                    data: [13, 8, 25, 7, 14, 22, 21, 25, 10, 15, 22, 9],
+                }]
+            };
+            echarts.init(document.getElementById('venActTrend')).setOption(venActTrendOpt);
+            // 区 - 用户订单趋势
+            var venOrderTrendOpt = {
+                // 全局调色盘颜色列表
+                color: ['#ebaa01'],
+                // 全局的字体样式。
+                textStyle: {
+                    fontSize: 12,
+                    color: '#666',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    top: 150
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月', ],
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2'
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        show: false
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 19,
+                        color: '#8eb2be'
+                    }
+                }],
+                yAxis: [{
+                    type: 'value',
+                    // y轴分割线
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            opacity: 0.2
+                        }
+                    },
+                    // 坐标轴的那根线
+                    axisLine: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                            type: 'dashed',
+                            opacity: 0.5
+                        }
+                    },
+                    // 刻度线
+                    axisTick: {
+                        lineStyle: {
+                            color: '#0a9dc2',
+                        }
+                    },
+                    // 刻度标签
+                    axisLabel: {
+                        fontSize: 14,
+                        color: '#1a89ad'
+                    }
+                }],
+                series: [{
+                    name: '用户订单趋势',
+                    type: 'line',
+                    data: [112, 369, 395, 416, 32, 211, 136, 269, 122, 480, 327, 124],
+                }]
+            };
+            echarts.init(document.getElementById('venOrderTrend')).setOption(venOrderTrendOpt);
+
+        }
+
+        $(function(){
+ $('.block').append('<div class="borderTL"></div><div class="borderTR"></div><div class="borderBL"></div><div class="borderBR"></div>');
+})
+    </script>
+
+</body>
+
+</html>

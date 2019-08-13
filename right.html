@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>大数据平台</title>
+    <link rel="stylesheet" type="text/css" href='css/right.css' />
+    <link rel="stylesheet" type="text/css" href='css/common.css' />
+    <!-- <link rel="stylesheet" type="text/css" href='js/swiper/css/swiper.min.css' /> -->
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src='js/echarts.min.js'></script>
+    <!-- <script src='js/swiper/js/swiper.min.js'></script> -->
+    <script src='js/jquery.slides.js'></script>
+
+</head>
+
+<body>
+   
+        <div class="swiper-wrapper" id='swiper-wrapper' >
+
+          
+            <!-- 第一屏开始 -->
+            <div class="swiper-slide" >
+                <div class="block">
+                    <p class="ptitle"><span>●</span><span>2018年11月景点停车收入排行</span></p>
+                    <div class="item-c">
+                        <div class="item" style='line-height:46px'>
+                            <span class="seq">1</span>
+                             
+                            <span class="title">天安门</span>
+                            <span>总金额(万元)</span>
+                            <span class="num2">55,883</span>
+                        </div>
+                    </div>
+                    <div class="item-c">
+                        <div class="item" style='line-height:46px'>
+                            <span class="seq">2</span>
+                            
+                            <span class="title">天坛</span>
+                            <span>总金额(万元)</span>
+                            <span class="num2">55,807</span>
+                        </div>
+                    </div>
+                    <div class="item-c">
+                        <div class="item" style='line-height:46px'>
+                            <span class="seq">3</span>
+                            
+                            <span class="title">王府井</span>
+                            <span>总金额(万元)</span>
+                            <span class="num2">39,095</span>
+                        </div>
+                    </div>
+                    <div class="item-c">
+                        <div class="item" style='line-height:46px'>
+                            <span class="seq">4</span>
+                       
+                            <span class="title">雍和宫</span>
+                            <span>总金额(万元)</span>
+                            <span class="num2">25,965</span>
+                        </div>
+                    </div>
+                    <div id='videoRank'>
+                    </div>
+                </div>
+                <div class="pad"></div>
+                <div class="rank block" style="height:460px;" >
+                    <p class="ptitle"><span>●</span><span>2018年11月停车场使用率排行榜</span></p>
+                    <div class="l-mid-item">
+                        <div class="seq">1</div>
+                        <div class="line">
+                            <p>王府井</p>
+                            <div class="bg"></div>
+                            <div class="data d1"></div>
+                        </div>
+                        <div class="num">0.883%</div>
+                    </div>
+                    <div class="l-mid-item">
+                        <div class="seq">2</div>
+                        <div class="line">
+                            <p>雍和宫</p>
+                            <div class="bg"></div>
+                            <div class="data d2"></div>
+                        </div>
+                        <div class="num">0.864%</div>
+                    </div>
+                    <div class="l-mid-item">
+                        <div class="seq">3</div>
+                        <div class="line">
+                            <p>天坛</p>
+                            <div class="bg"></div>
+                            <div class="data d3"></div>
+                        </div>
+                        <div class="num">0.753%</div>
+                    </div>
+                    <div class="l-mid-item">
+                        <div class="seq colorNormal">4</div>
+                        <div class="line">
+                            <p>天安门</p>
+                            <div class="bg"></div>
+                            <div class="data d4"></div>
+                        </div>
+                        <div class="num">0.732%</div>
+                    </div>
+                    <div class="l-mid-item">
+                        <div class="seq colorNormal">5</div>
+                        <div class="line">
+                            <p>地坛</p>
+                            <div class="bg"></div>
+                            <div class="data d5"></div>
+                        </div>
+                        <div class="num">0.612%</div>
+                    </div>
+                    <div class="l-mid-item">
+                        <div class="seq colorNormal">6</div>
+                        <div class="line">
+                            <p>南锣鼓巷</p>
+                            <div class="bg"></div>
+                            <div class="data d6"></div>
+                        </div>
+                        <div class="num">0.576%</div>
+                    </div>
+                    <div class="l-mid-item">
+                        <div class="seq colorNormal">7</div>
+                        <div class="line">
+                            <p>中山公园</p>
+                            <div class="bg"></div>
+                            <div class="data d7"></div>
+                        </div>
+                        <div class="num colorNormal">0.467%</div>
+                    </div>
+                    <div class="l-mid-item">
+                        <div class="seq colorNormal">8</div>
+                        <div class="line">
+                            <p>孔庙</p>
+                            <div class="bg"></div>
+                            <div class="data d8"></div>
+                        </div>
+                        <div class="num">0.417%</div>
+                    </div>
+                </div>
+            </div>
+           
+   <!-- 第二屏开始 -->
+             <div class="swiper-slide">
+                    <div class="rank block">
+                        <p class="ptitle"><span>●</span><span>2018年11月各景点停车位数排行榜</span></p>
+                        <div class="l-mid-item">
+                            <div class="seq">1</div>
+                            <div class="line">
+                                <p>天安门</p>
+                                <div class="bg"></div>
+                                <div class="data d11"></div>
+                            </div>
+                            <div class="num">1934</div>
+                        </div>
+                        <div class="l-mid-item">
+                            <div class="seq">2</div>
+                            <div class="line">
+                                <p>孔庙</p>
+                                <div class="bg"></div>
+                                <div class="data d11"></div>
+                            </div>
+                            <div class="num">1832</div>
+                        </div>
+                        <div class="l-mid-item">
+                            <div class="seq">3</div>
+                            <div class="line">
+                                <p>天坛</p>
+                                <div class="bg"></div>
+                                <div class="data d31"></div>
+                            </div>
+                            <div class="num">1712</div>
+                        </div>
+                        <div class="l-mid-item">
+                            <div class="seq colorNormal">4</div>
+                            <div class="line">
+                                <p>王府井</p>
+                                <div class="bg"></div>
+                                <div class="data d41"></div>
+                            </div>
+                            <div class="num">1600</div>
+                        </div>
+                        <div class="l-mid-item">
+                            <div class="seq colorNormal">5</div>
+                            <div class="line">
+                                <p>南锣鼓巷</p>
+                                <div class="bg"></div>
+                                <div class="data d51"></div>
+                            </div>
+                            <div class="num">1500</div>
+                        </div>
+                        <div class="l-mid-item">
+                            <div class="seq colorNormal">6</div>
+                            <div class="line">
+                                <p>中山公园</p>
+                                <div class="bg"></div>
+                                <div class="data d61"></div>
+                            </div>
+                            <div class="num">1400</div>
+                        </div>
+                        <div class="l-mid-item">
+                            <div class="seq colorNormal">7</div>
+                            <div class="line">
+                                <p>地坛公园</p>
+                                <div class="bg"></div>
+                                <div class="data d71"></div>
+                            </div>
+                            <div class="num">1300</div>
+                        </div>
+                        <div class="l-mid-item">
+                            <div class="seq colorNormal">8</div>
+                            <div class="line">
+                                <p>龙潭西湖公园</p>
+                                <div class="bg"></div>
+                                <div class="data d81"></div>
+                            </div>
+                            <div class="num">1200</div>
+                        </div>
+                    </div>
+                    <div class="pad"></div>
+                    <div class="block visit">
+                          <p class="ptitle"><span>●</span><span>分类别停车位使用情况统计</span></p>
+                          <div class="item-c">
+                                <div class="item item2">
+                                    <img src='/img/third/4.png'>
+                                    <span class="title">景点</span>
+                                    <div class="ml10"><p class="yellowNum">1,883</p><p>今日容纳车数(辆)</p></div>
+                                    <div><p class="yellowNum">383</p><p>实时容纳车数(辆)</p></div>
+                                </div>
+                            </div>
+                          <div class="item-c">
+                                <div class="item item2">
+                                    <img src='/img/third/5.png'>
+                                    <span class="title">机关</span>
+                                    <div class="ml10"><p class="yellowNum">483</p><p>今日容纳车数(辆)</p></div>
+                                    <div><p class="yellowNum">43</p><p>实时容纳车数(辆)</p></div>
+                                </div>
+                            </div>
+                          <div class="item-c">
+                                <div class="item item2">
+                                    <img src='/img/third/6.png'>
+                                    <span class="title">商场</span>
+                                    <div class="ml10"><p class="yellowNum">383</p><p>今日容纳车数(辆)</p></div>
+                                    <div><p class="yellowNum">33</p><p>实时容纳车数(辆)</p></div>
+                                </div>
+                            </div>
+                          <div class="item-c">
+                                <div class="item item2">
+                                    <img src='/img/third/7.png'>
+                                    <span class="title">医院</span>
+                                    <div class="ml10"><p class="yellowNum">283</p><p>今日容纳车数(辆)</p></div>
+                                    <div><p class="yellowNum">33</p><p>实时容纳车数(辆)</p></div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="pad"></div>
+                    <div class="block sblock">
+                            <p class="ptitle"><span>●</span><span>总车位数</span></p>
+                            <div class="bitem">
+                                <img src='/img/third/8.png'>
+                                <span>总车位数</span>
+                                <span class="snum ml" style="margin-left:150px;"><span>2,556</span><span>人</span></span>
+                            </div>
+                    </div>
+                    
+                </div>
+
+            <!-- 第三屏开始 -->
+            <div class="swiper-slide">
+                    <div class="block sblock">
+                            <p class="ptitle"><span>●</span><span>今日总停车次数</span></p>
+                            <div class="bitem">
+                                <img src='/img/third/9.png'>
+                                <span>今日总停车次数</span>
+                                <span class="snum"><span>15,560</span><span>台次</span></span>
+                            </div>
+                    </div>
+                    <div class="pad"></div>
+                    <div class="block people">
+                            <p class="ptitle"><span>●</span><span>剩余车位数</span></p>
+                             <div class="ctitle">
+                                 <span class="dot">●</span>
+                                 <span >剩余车位(个)</span>
+                                 <span class="pnum pd-l">1</span>
+                                 <span class="pnum">1</span>
+                                 <span class="pnum">4</span>
+                                 <span class="pnum">3</span>
+                             </div>
+                            <div id='chartPeople'></div>
+                    </div>
+                    <div class="pad"></div>
+                    <div class="block people">
+                            <p class="ptitle"><span>●</span><span>停车总收入</span></p>
+                             <div class="ctitle">
+                                 <span class="dot">●</span>
+                                 <span >停车收入</span>
+                                 <span class="pnum pd-l">1</span>
+                                 <span class="pnum">0</span>
+                                 <span class="pnum">3</span>
+                                 <span class="pnum">0</span>
+                              
+                                 
+                             </div>
+                            <div id='carPeople'></div>
+                    </div>
+            </div>
+        </div>
+   
+
+</body>
+<script src='js/right.js'></script>
+
+</html>

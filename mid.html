@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>大数据平台</title>
+    <link rel="stylesheet" type="text/css" href='css/mid.css' />
+    <link rel="stylesheet" type="text/css" href='css/common.css' />
+    <!-- <link rel="stylesheet" type="text/css" href='js/swiper/css/swiper.min.css' /> -->
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src='js/echarts.min.js'></script>
+    <!-- <script src='js/swiper/js/swiper.min.js'></script> -->
+    <script src='js/jquery.slides.js'></script>
+    <script src="http://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+    <script src="https://code.highcharts.com.cn/highcharts/themes/dark-unica.js"></script>
+    
+    <script src="http://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+    <script src="http://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+</head>
+
+<body>
+    
+        <div class="swiper-wrapper" id='swiper-wrapper'>
+            <!-- 第一屏开始 -->
+            <div class="swiper-slide">
+                <div class="block map">
+                    <p class="ptitle"><span>●</span><span>车流量时间序列图</span></p>
+                    <div class="mapContainer" id='mapContainer'></div>
+                </div>
+                
+                <div class="pad"></div>
+                <div class="block sblock" style='width:617px'>
+                    <p class="ptitle"><span>●</span><span>范围内停车营收合计</span></p>
+                    <div class="bitem">
+                        <img src='/img/second/2.png'>
+                        <span>2018年1-12月营收合计</span>
+                        <span class="snum" style="margin-left:20px;"><span>3028</span><span>万元</span></span>
+                    </div>
+                </div>
+                <div class="pad"></div>
+                <div class="block income">
+                    <p class="ptitle"><span>●</span><span>范围内停车营收统计(万元)</span></p>
+                    <div id='incomSta'></div>
+                </div>
+
+            </div>
+
+            <!-- 第二屏开始 -->
+            <div class="swiper-slide">
+                <div class="block outCome">
+                    <p class="ptitle"><span>●</span><span>停车指标统计（个）</span></p>
+                    <div class="outItemC">
+                        <div class="outItem">
+                            <img src='/img/second/3.png'>
+                            <div>
+                                <p>5800</p>
+                                <p>本地燃油车</p>
+                            </div>
+                        </div>
+                        <div class="outItem">
+                            <img src='/img/second/4.png'>
+                            <div>
+                                <p>480</p>
+                                <p>本地新能源车</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="outItemC">
+                        <div class="outItem">
+                            <img src='/img/second/5.png'>
+                            <div>
+                                <p>8,66</p>
+                                <p>外地燃油车</p>
+                            </div>
+                        </div>
+                        <div class="outItem">
+                            <img src='/img/second/6.png'>
+                            <div>
+                                <p>35</p>
+                                <p>外地新能源</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="pad"></div>
+                <div class="block sexSta">
+                    <p class="ptitle"><span>●</span><span>停车方式统计</span></p>
+                    <div class="clegend">
+                        <div><span class="female"></span><span>新能源</span></div>
+                        <div><span class='male'></span><span>燃油</span></div>
+                    </div>
+                    <div class="sexStaC">
+                        <div id='videoProduct'></div>
+                        <div id='videoTec'></div>
+                        <div id='videoService'></div>
+                    </div>
+                </div>
+                <div class="pad"></div>
+                <div class="block pavg">
+                    <p class="ptitle"><span>●</span><span>停车比例统计</span></p>
+                    <div id='peopleSta'></div>
+                </div>
+
+            </div>
+            <!-- 第三屏开始 -->
+            <div class="swiper-slide">
+                <div class="block compSta">
+                    <p class="ptitle"><span>●</span><span>停车位数统计</span></p>
+                    <div class="ctitle">
+                        <span class="dot">●</span>
+                        <span>总停车位个数(个)</span>
+                        <span class="pnum">7</span>
+                        <span class="pnum">2</span>
+                        <span class="pnum">9</span>
+                        <span class="pnum">2</span>
+                        <span class="pnum">5</span>
+                        <span class="pnum">7</span>
+                    </div>
+                    <div class="plegend">
+                        <div><hr style="border:1px solid#cea12f"><span>小区</span></div>
+                        <div><hr style="border:1px solid #267ea4"><span>路边</span></div>
+                        <div><hr style="border:1px solid #252fbb"><span>停车场</span></div>
+                    </div>
+                    <div id='compStaChart'></div>
+                    <div class="comItemc">
+                         <div class="comItem c1">
+                             <p>停车总数</p>
+                             <p>6041个</p>
+                         </div>
+                         <div class="comItem c2">
+                                <p>小区停车场</p>
+                                <p>600个</p>
+                         </div>
+                         <div class="comItem c3">
+                                <p>路边停车场</p>
+                                <p>2400个</p>
+                         </div>
+                         <div class="comItem c4">
+                                <p>停车场</p>
+                                <p>3041个</p>
+                         </div>
+                    </div>
+                </div>
+                <div class="pad"></div>
+                <div class="block newCompSta">
+                    <p class="ptitle"><span>●</span><span>停车场类型统计</span></p>
+                    <div class="ctitle">
+                            <span class="dot">●</span>
+                            <span>停车场总数(个)</span>
+                            <span class="pnum pd-l">6</span>
+                            <span class="pnum">0</span>
+                            <span class="pnum">2</span>
+                            <span class="pnum">2</span>
+                     </div>
+                     <div class='newCompContainer'>
+                         <div class="newCompList">
+                             <div class="newCompItem">
+                                 <span>地面停车场</span>
+                                 <span>1200个</span>
+                             </div>
+                             <div class="newCompItem">
+                                 <span>地下停车场</span>
+                                 <span>3100个</span>
+                             </div>
+                             <div class="newCompItem">
+                                 <span>立体停车场</span>
+                                 <span>1990个</span>
+                             </div>
+                           
+                         </div>
+                         <div id='newCompChart'>
+
+                         </div>
+                     </div>
+                </div>
+
+
+
+            </div>
+        </div>
+     
+
+</body>
+<script src='/js/mid.js'></script>
+
+</html>
